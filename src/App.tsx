@@ -3,6 +3,7 @@ import { ThemeProvider, GlobalStyle } from './styles/GlobalStyles';
 import { Hotel, SortResultsByOptions } from './types';
 import { hotels } from './data/hotels';
 import { HotelAdvert } from './components/HotelAdvert';
+import { SortButton } from './components/SortButton';
 import { sortHotels } from './utils/utils';
 
 function App(): JSX.Element {
@@ -18,15 +19,24 @@ function App(): JSX.Element {
       <>
         <GlobalStyle />
         <div>
-          <button onClick={() => setSortResultsBy(SortResultsByOptions.ALPHABETICALLY)}>
-            sort <b>alphabetically</b>
-          </button>
-          <button onClick={() => setSortResultsBy(SortResultsByOptions.PRICE)}>
-            sort by <b>price</b>
-          </button>
-          <button onClick={() => setSortResultsBy(SortResultsByOptions.STAR_RATING)}>
-            sort by <b>star rating</b>
-          </button>
+          <SortButton
+            isActive={sortResultsBy === SortResultsByOptions.ALPHABETICALLY}
+            text={'sort'}
+            bold={'alphabetically'}
+            onClick={() => setSortResultsBy(SortResultsByOptions.ALPHABETICALLY)}
+          />
+          <SortButton
+            isActive={sortResultsBy === SortResultsByOptions.PRICE}
+            text={'sort by'}
+            bold={'price'}
+            onClick={() => setSortResultsBy(SortResultsByOptions.PRICE)}
+          />
+          <SortButton
+            isActive={sortResultsBy === SortResultsByOptions.STAR_RATING}
+            text={'sort by'}
+            bold={'star rating'}
+            onClick={() => setSortResultsBy(SortResultsByOptions.STAR_RATING)}
+          />
         </div>
         <section>
           {hotelsData.map((hotel) => (
