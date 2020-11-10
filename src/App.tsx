@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { ThemeProvider, GlobalStyle } from './styles/GlobalStyles';
-import { SortResultsByOptions } from './types';
+import { Hotel, SortResultsByOptions } from './types';
+import { hotels } from './data/hotels';
+import { HotelAdvert } from './components/HotelAdvert';
 
 function App(): JSX.Element {
   const [sortResultsBy, setSortResultsBy] = useState<SortResultsByOptions>(SortResultsByOptions.PRICE);
+  const [hotelsData, setHotelsData] = useState<Hotel[]>(hotels);
   useEffect(() => {
     console.log({ sortResultsBy });
   }, [sortResultsBy]);
@@ -22,6 +25,11 @@ function App(): JSX.Element {
             sort by <b>star rating</b>
           </button>
         </div>
+        <section>
+          {hotelsData.map((hotel) => (
+            <HotelAdvert key={hotel.name} hotel={hotel} />
+          ))}
+        </section>
       </>
     </ThemeProvider>
   );
