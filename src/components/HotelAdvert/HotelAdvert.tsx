@@ -27,7 +27,7 @@ export const HotelAdvert = ({ hotel }: HotelAdvertProps): JSX.Element => {
           <p>
             {adults} Adults,
             {children && children > 1 ? `${children} children` : `${children} child`}
-            {infants && `& ${infants} infant`}
+            {infants && ` & ${infants} infant`}
           </p>
           <p>
             {startDate} for {length} <br />
