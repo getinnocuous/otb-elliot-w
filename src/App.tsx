@@ -3,9 +3,8 @@ import { ThemeProvider, GlobalStyle } from './styles/GlobalStyles';
 import { Hotel, SortResultsByOptions } from './types';
 import { hotels } from './data/hotels';
 import { HotelAdvert } from './components/HotelAdvert';
-import { SortButton } from './components/SortButton';
 import { sortHotels } from './utils/utils';
-
+import { SortResults } from './patterns/SortResults';
 function App(): JSX.Element {
   const [sortResultsBy, setSortResultsBy] = useState<SortResultsByOptions>(SortResultsByOptions.PRICE);
   const [hotelsData, setHotelsData] = useState<Hotel[]>(sortHotels(hotels, sortResultsBy));
@@ -18,31 +17,14 @@ function App(): JSX.Element {
     <ThemeProvider>
       <>
         <GlobalStyle />
-        <div>
-          <SortButton
-            isActive={sortResultsBy === SortResultsByOptions.ALPHABETICALLY}
-            text={'sort'}
-            bold={'alphabetically'}
-            onClick={() => setSortResultsBy(SortResultsByOptions.ALPHABETICALLY)}
-          />
-          <SortButton
-            isActive={sortResultsBy === SortResultsByOptions.PRICE}
-            text={'sort by'}
-            bold={'price'}
-            onClick={() => setSortResultsBy(SortResultsByOptions.PRICE)}
-          />
-          <SortButton
-            isActive={sortResultsBy === SortResultsByOptions.STAR_RATING}
-            text={'sort by'}
-            bold={'star rating'}
-            onClick={() => setSortResultsBy(SortResultsByOptions.STAR_RATING)}
-          />
-        </div>
-        <section>
-          {hotelsData.map((hotel) => (
-            <HotelAdvert key={hotel.name} hotel={hotel} />
-          ))}
-        </section>
+        <main>
+          <SortResults sortResultsBy={sortResultsBy} setSortResultsBy={setSortResultsBy} />
+          <section>
+            {hotelsData.map((hotel) => (
+              <HotelAdvert key={hotel.name} hotel={hotel} />
+            ))}
+          </section>
+        </main>
       </>
     </ThemeProvider>
   );
