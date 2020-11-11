@@ -21,10 +21,17 @@ export const Button = styled.button<ButtonProps>`
   &:last-of-type {
     border-bottom: solid 0.1rem transparent;
   }
+  svg {
+    float: right;
+    fill: ${({ theme }) => theme.color.lightGrey};
+  }
   ${({ isActive }) =>
     isActive &&
     css`
       background-color: ${({ theme }) => theme.color.primary};
       color: ${({ theme }) => theme.color.white};
+      svg {
+        fill: ${({ theme }) => theme.color.white};
+      }
     `};
 `;

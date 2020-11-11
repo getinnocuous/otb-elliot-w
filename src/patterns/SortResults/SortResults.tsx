@@ -16,18 +16,21 @@ export const SortResults = ({ sortResultsBy, setSortResultsBy }: SortResultsProp
         text={'sort'}
         bold={'alphabetically'}
         onClick={() => setSortResultsBy(SortResultsByOptions.ALPHABETICALLY)}
+        icon={'alpha'}
       />
       <SortButton
         isActive={sortResultsBy === SortResultsByOptions.PRICE}
         text={'sort by'}
         bold={'price'}
         onClick={() => setSortResultsBy(SortResultsByOptions.PRICE)}
+        icon={'money'}
       />
       <SortButton
         isActive={sortResultsBy === SortResultsByOptions.STAR_RATING}
         text={'sort by'}
         bold={'star rating'}
         onClick={() => setSortResultsBy(SortResultsByOptions.STAR_RATING)}
+        icon={'star'}
       />
     </SortResultsContainer>
   );
