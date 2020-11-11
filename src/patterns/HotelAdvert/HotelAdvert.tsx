@@ -10,6 +10,7 @@ import {
 } from './HotelAdvert.styled';
 import { formatBookingDetails } from './HotelAdvert.utils';
 import { BookNowButton } from '../../components/BookNowButton';
+import { StarRating } from '../../components/StarRating';
 interface HotelAdvertProps {
   hotel: Hotel;
 }
@@ -31,7 +32,7 @@ export const HotelAdvert = ({ hotel }: HotelAdvertProps): JSX.Element => {
       <HotelDetails>
         <h1>{name}</h1>
         <h2>{location}</h2>
-        <div>{rating}</div>
+        <StarRating rating={rating} />
         {formatBookingDetails(partySize, bookingDetails)}
         <BookNowButton href={'/'} price={price} />
       </HotelDetails>
