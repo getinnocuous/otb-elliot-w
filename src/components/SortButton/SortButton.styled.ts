@@ -16,7 +16,7 @@ export const Button = styled.button<ButtonProps>`
   border: none;
   background-color: ${({ theme }) => theme.color.white};
   color: ${({ theme }) => theme.color.primary};
-  transition: all 0.1s ease-in-out;
+  transition: background-color color 0.1s ease-in-out;
   border-radius: 0;
   svg {
     display: none;

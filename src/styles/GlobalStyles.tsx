@@ -1,12 +1,13 @@
 import React, { FC } from 'react';
 import { createGlobalStyle, ThemeProvider as TP, DefaultTheme } from 'styled-components';
+import BackgroundImage from '../images/background.png';
 
 export const theme: DefaultTheme = {
   breakpoints: {
     xs: '374px',
     md: '660px',
     lg: '768px',
-    xl: '1100px',
+    xl: '1200px',
   },
   color: {
     primary: '#17317f',
@@ -21,8 +22,9 @@ export const theme: DefaultTheme = {
 export const GlobalStyle = createGlobalStyle`
   :root {
     --spacing: 1rem;
-    --layout-max-width: 120rem;
+    --layout-max-width: 110rem;
     --column-max-width: 80rem;
+    --image-max-width: 49rem;
     --body: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, sans-serif;
     font-size: 62.5%;
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg})  {
@@ -50,7 +52,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: var(--body);
     padding: var(--spacing);
     color: ${({ theme }) => theme.color.body};
-    background-color: lightblue;
+    background: url(${BackgroundImage});
   }
 
   a {
@@ -59,12 +61,12 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   main {
-    display:grid;
+    display: grid;
     grid-gap: calc(var(--spacing) * 2);
     max-width: var(--layout-max-width);
     margin: auto;
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.xl})  {
-      grid-template-columns: auto auto;
+      grid-template-columns: 30rem var(--column-max-width);
     }
   }
 `;

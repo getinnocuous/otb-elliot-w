@@ -2,19 +2,16 @@ import styled, { css } from 'styled-components';
 
 export const HotelAdvertContainer = styled.article`
   display: grid;
-  max-width: 49rem;
   box-shadow: 0px 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
-  margin: auto;
   background-color: ${({ theme }) => theme.color.white};
   @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-    grid-template-columns: 49rem 1fr;
-    max-width: var(--column-max-width);
+    grid-template-columns: var(--image-max-width) 1fr;
   }
 `;
 
 export const ImageContainer = styled.div`
   position: relative;
-  max-width: 49rem;
+  max-width: var(--image-max-width);
   height: 100%;
   img {
     display: block;
