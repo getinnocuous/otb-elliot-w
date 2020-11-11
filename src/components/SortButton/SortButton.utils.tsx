@@ -1,16 +1,14 @@
 import React from 'react';
-import { FaSortAlphaDown, FaMoneyBillWave, FaStar } from 'react-icons/fa';
+import { FaSortAlphaDown, FaSortAlphaUpAlt, FaSortAmountUpAlt, FaSortAmountDown } from 'react-icons/fa';
+import { Direction, SortResultsByOptions } from '../../types';
 
-export type Icon = 'alpha' | 'money' | 'star' | null;
-
-export const getIcon = (icon: Icon): JSX.Element | null => {
-  switch (icon) {
-    case 'alpha':
-      return <FaSortAlphaDown />;
-    case 'money':
-      return <FaMoneyBillWave />;
-    case 'star':
-      return <FaStar />;
+export const getIcon = (type: SortResultsByOptions, direction: Direction): JSX.Element | null => {
+  switch (type) {
+    case SortResultsByOptions.ALPHABETICALLY:
+      return direction === Direction.ASC ? <FaSortAlphaDown /> : <FaSortAlphaUpAlt />;
+    case SortResultsByOptions.STAR_RATING:
+    case SortResultsByOptions.PRICE:
+      return direction === Direction.ASC ? <FaSortAmountUpAlt /> : <FaSortAmountDown />;
     default:
       return null;
   }

@@ -1,40 +1,10 @@
-import { SortResultsByOptions, Hotel } from '../types';
+import { Hotel, Direction, SortState } from '../types';
 
-enum Direction {
-  ASC,
-  DESC,
-}
-
-interface SortType {
-  key: 'name' | 'rating' | 'price';
-  direction?: Direction;
-}
-
-const getKeyAndDirection = (order: SortResultsByOptions): SortType => {
-  switch (order) {
-    case SortResultsByOptions.ALPHABETICALLY:
-      return {
-        key: 'name',
-      };
-    case SortResultsByOptions.STAR_RATING:
-      return {
-        key: 'rating',
-        direction: Direction.DESC,
-      };
-    case SortResultsByOptions.PRICE:
-    default:
-      return {
-        key: 'price',
-        direction: Direction.DESC,
-      };
-  }
-};
-
-export const sortHotels = (data: Hotel[], order: SortResultsByOptions): Hotel[] => {
-  const { direction, key } = getKeyAndDirection(order);
+export const sortHotels = (data: Hotel[], order: SortState): Hotel[] => {
+  const { direction, keyName } = order;
   const sortedData = data.sort((a, b) => {
-    const keyA = a[key];
-    const keyB = b[key];
+    const keyA = a[keyName];
+    const keyB = b[keyName];
     if (keyA < keyB) {
       return -1;
     }

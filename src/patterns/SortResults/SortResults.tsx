@@ -1,36 +1,40 @@
 import React from 'react';
-import { SortResultsByOptions } from '../../types/';
+import { SortResultsByOptions, Sortable } from '../../types/';
 import { SortButton } from '../../components/SortButton';
 import { SortResultsContainer } from './SortResults.styled';
 
 interface SortResultsProps {
-  sortResultsBy: SortResultsByOptions;
-  setSortResultsBy: React.Dispatch<React.SetStateAction<SortResultsByOptions>>;
+  currentSort: SortResultsByOptions;
+  onClick: (option: SortResultsByOptions) => void;
+  sortResultsBy: Sortable;
 }
 
-export const SortResults = ({ sortResultsBy, setSortResultsBy }: SortResultsProps): JSX.Element => {
+export const SortResults = ({ sortResultsBy, currentSort, onClick }: SortResultsProps): JSX.Element => {
   return (
     <SortResultsContainer>
       <SortButton
-        isActive={sortResultsBy === SortResultsByOptions.ALPHABETICALLY}
+        isActive={currentSort === SortResultsByOptions.ALPHABETICALLY}
         text={'sort'}
         bold={'alphabetically'}
-        onClick={() => setSortResultsBy(SortResultsByOptions.ALPHABETICALLY)}
-        icon={'alpha'}
+        onClick={() => onClick(SortResultsByOptions.ALPHABETICALLY)}
+        direction={sortResultsBy.ALPHABETICALLY.direction}
+        type={SortResultsByOptions.ALPHABETICALLY}
       />
       <SortButton
-        isActive={sortResultsBy === SortResultsByOptions.PRICE}
+        isActive={currentSort === SortResultsByOptions.PRICE}
         text={'sort by'}
         bold={'price'}
-        onClick={() => setSortResultsBy(SortResultsByOptions.PRICE)}
-        icon={'money'}
+        onClick={() => onClick(SortResultsByOptions.PRICE)}
+        direction={sortResultsBy.PRICE.direction}
+        type={SortResultsByOptions.PRICE}
       />
       <SortButton
-        isActive={sortResultsBy === SortResultsByOptions.STAR_RATING}
+        isActive={currentSort === SortResultsByOptions.STAR_RATING}
         text={'sort by'}
         bold={'star rating'}
-        onClick={() => setSortResultsBy(SortResultsByOptions.STAR_RATING)}
-        icon={'star'}
+        onClick={() => onClick(SortResultsByOptions.STAR_RATING)}
+        direction={sortResultsBy.STAR_RATING.direction}
+        type={SortResultsByOptions.STAR_RATING}
       />
     </SortResultsContainer>
   );
