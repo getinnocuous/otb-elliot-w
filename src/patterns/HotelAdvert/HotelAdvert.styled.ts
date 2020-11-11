@@ -5,9 +5,10 @@ export const HotelAdvertContainer = styled.article`
   max-width: 49rem;
   box-shadow: 0px 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
   margin: auto;
+  background-color: ${({ theme }) => theme.color.white};
   @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}) {
     grid-template-columns: 49rem 1fr;
-    max-width: 80rem;
+    max-width: var(--column-max-width);
   }
 `;
 

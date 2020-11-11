@@ -6,7 +6,7 @@ export const theme: DefaultTheme = {
     xs: '374px',
     md: '660px',
     lg: '768px',
-    xl: '960px',
+    xl: '1100px',
   },
   color: {
     primary: '#17317f',
@@ -21,6 +21,8 @@ export const theme: DefaultTheme = {
 export const GlobalStyle = createGlobalStyle`
   :root {
     --spacing: 1rem;
+    --layout-max-width: 120rem;
+    --column-max-width: 80rem;
     --body: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, sans-serif;
     font-size: 62.5%;
     @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg})  {
@@ -47,12 +49,23 @@ export const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     font-family: var(--body);
     padding: var(--spacing);
-    color: ${({ theme }) => theme.color.body}
+    color: ${({ theme }) => theme.color.body};
+    background-color: lightblue;
   }
 
   a {
     color: inherit;
     text-decoration: none;
+  }
+
+  main {
+    display:grid;
+    grid-gap: calc(var(--spacing) * 2);
+    max-width: var(--layout-max-width);
+    margin: auto;
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.xl})  {
+      grid-template-columns: auto auto;
+    }
   }
 `;
 
