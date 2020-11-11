@@ -20,14 +20,11 @@ export const theme: DefaultTheme = {
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --h-spacing: 1.5rem;
-    --v-spacing: 1rem;
-    --heading: 'Bebas Neue', -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, sans-serif;
-    --body: 'Roboto', -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, sans-serif;
+    --spacing: 1rem;
+    --body: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica Neue, sans-serif;
     font-size: 62.5%;
-    @media screen and (min-width: ${theme.breakpoints.md})  {
-      --h-spacing: 3rem;
-      --v-spacing: 2rem;
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg})  {
+      --spacing: 2rem;
     }
   }
 
@@ -49,7 +46,8 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-family: var(--body);
-    padding: var(--v-spacing) var(--h-spacing);
+    padding: var(--spacing);
+    color: ${({ theme }) => theme.color.body}
   }
 
   a {

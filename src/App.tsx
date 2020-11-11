@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { ThemeProvider, GlobalStyle } from './styles/GlobalStyles';
 import { Hotel, SortResultsByOptions } from './types';
 import { hotels } from './data/hotels';
-import { HotelAdvert } from './components/HotelAdvert';
+import { HotelAdvert } from './patterns/HotelAdvert';
 import { sortHotels } from './utils/utils';
 import { SortResults } from './patterns/SortResults';
+
 function App(): JSX.Element {
   const [sortResultsBy, setSortResultsBy] = useState<SortResultsByOptions>(SortResultsByOptions.PRICE);
   const [hotelsData, setHotelsData] = useState<Hotel[]>(sortHotels(hotels, sortResultsBy));
