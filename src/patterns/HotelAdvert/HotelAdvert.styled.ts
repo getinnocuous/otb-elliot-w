@@ -65,11 +65,6 @@ export const HotelDetails = styled.div`
   }
   p {
     margin: 1rem 0 1rem;
-    font-size: 1.2rem;
-    line-height: 1.3;
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-      font-size: 1.4rem;
-    }
   }
 `;
 
@@ -88,10 +83,5 @@ export const HotelOverview = styled.div`
   }
   p {
     margin: 0;
-    font-size: 1.2rem;
-    line-height: 1.3;
-    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-      font-size: 1.4rem;
-    }
   }
 `;

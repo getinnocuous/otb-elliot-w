@@ -69,6 +69,14 @@ export const GlobalStyle = createGlobalStyle`
       grid-template-columns: 30rem var(--column-max-width);
     }
   }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.3;
+    @media screen and (min-width: ${({ theme }) => theme.breakpoints.lg}) {
+      font-size: 1.4rem;
+    }
+  }
 `;
 
 type Props = {
