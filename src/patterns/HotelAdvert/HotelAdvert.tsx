@@ -21,14 +21,12 @@ export const HotelAdvert = ({ hotel }: HotelAdvertProps): JSX.Element => {
 
   return (
     <HotelAdvertContainer key={name}>
-      <div>
-        <ImageContainer>
-          <img src={image} alt={name} />
-          <ToggleOverviewButton onClick={() => setToggle(!toggle)} toggle={toggle}>
-            <b>Read {toggle ? 'less' : 'more'}</b> about this hotel <FaChevronRight size={14} />
-          </ToggleOverviewButton>
-        </ImageContainer>
-      </div>
+      <ImageContainer>
+        <img src={image} alt={name} />
+        <ToggleOverviewButton onClick={() => setToggle(!toggle)} toggle={toggle}>
+          <b>Read {toggle ? 'less' : 'more'}</b> about this hotel <FaChevronRight size={14} />
+        </ToggleOverviewButton>
+      </ImageContainer>
       <HotelDetails>
         <h1>{name}</h1>
         <h2>{location}</h2>
