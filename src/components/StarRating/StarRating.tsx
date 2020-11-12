@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
-import { getArrayFromAmount } from '../../utils/getArrayFromAmount';
+import { getArrayFromAmount } from '../../utils/';
 import { StarRatingContainer } from './StarRating.styled';
 
 interface StarRatingProps {

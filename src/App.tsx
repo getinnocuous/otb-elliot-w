@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ThemeProvider, GlobalStyle } from './styles/GlobalStyles';
 import { Direction, Hotel, Sortable, SortResultsByOptions } from './types';
 import { hotels } from './data/hotels';
-import { sortHotels } from './utils/utils';
+import { sortHotels } from './utils/';
 import { SortResults } from './patterns/SortResults';
 import { ResultsList } from './patterns/ResultsList';
 
